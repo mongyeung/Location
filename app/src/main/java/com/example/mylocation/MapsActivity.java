@@ -13,11 +13,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -64,13 +66,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 updateButtonOnclick();
             }
         });
-        /*databaseReference = FirebaseDatabase.getInstance().getReference("Location");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Location");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
-                    String databaseLatitudeString = dataSnapshot.child("latitude").getValue().toString().substring(1, dataSnapshot.child("latitude").getValue().toString().length()-1);
-                    String databaseLongitudedeString = dataSnapshot.child("longitude").getValue().toString().substring(1, dataSnapshot.child("longitude").getValue().toString().length()-1);
+                    Toast.makeText(MapsActivity.this,"Updated location",Toast.LENGTH_SHORT).show();
+                    String databaseLatitudeString = dataSnapshot.child("martin/latitude").getValue().toString().substring(1, dataSnapshot.child("martin/latitude").getValue().toString().length()-1);
+                    String databaseLongitudedeString = dataSnapshot.child("martin/longitude").getValue().toString().substring(1, dataSnapshot.child("martin/longitude").getValue().toString().length()-1);
 
                     String[] stringLat = databaseLatitudeString.split(", ");
                     Arrays.sort(stringLat);
@@ -82,7 +85,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
                     LatLng latLng = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
-
+                    System.out.println("Martin latitude:" + latitude);
+                    mMap.clear();
                     mMap.addMarker(new MarkerOptions().position(latLng).title(latitude + " , " + longitude));
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
@@ -99,7 +103,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });*/
+        });
     }
 
 
@@ -125,9 +129,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 try {
                     editTextLatitude.setText(Double.toString(location.getLatitude()));
                     editTextLongitude.setText(Double.toString(location.getLongitude()));
-                    LatLng cloocation = new LatLng(location.getLatitude(), location.getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(cloocation).title("Your location"));
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(cloocation));
+                    //LatLng cloocation = new LatLng(location.getLatitude(), location.getLongitude());
+                    //mMap.addMarker(new MarkerOptions().position(cloocation).title("Your location"));
+                   // mMap.moveCamera(CameraUpdateFactory.newLatLng(cloocation));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -174,8 +178,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void updateButtonOnclick(){
 
-        //databaseReference.child("latitude").push().setValue(editTextLatitude.getText().toString());
-        //databaseReference.child("longitude").push().setValue(editTextLongitude.getText().toString());
+        databaseReference.child("mong/latitude").push().setValue(editTextLatitude.getText().toString());
+        databaseReference.child("mong/longitude").push().setValue(editTextLongitude.getText().toString());
 
     }
 }
