@@ -10,37 +10,50 @@
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="470dp"
         tools:context=".MapsActivity"
         tools:layout="@android:layout/simple_spinner_dropdown_item" />
-    <EditText
+
+    <!--<EditText
         android:id="@+id/editText"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="550dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/latitude"
-        android:inputType="textPersonName"
-        android:layout_marginLeft="30dp" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editText2"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="171dp"
         android:layout_marginTop="550dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/longitude"
-        android:inputType="textPersonName"
-        android:layout_marginLeft="220dp" />
+        android:inputType="textPersonName" />-->
 
     <Button
         android:id="@+id/updateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="600dp"
-        android:text="@string/update"
-        android:layout_marginLeft="150dp" />
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="480dp"
+        android:text="@string/update" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="525dp"
+        android:drawableRight="@drawable/ic_baseline_place_24"
+        android:text="你的位置"
+        android:textColor="@color/black"
+        android:textSize="32dp"
+        android:textStyle="bold" />
+
 
 </FrameLayout>

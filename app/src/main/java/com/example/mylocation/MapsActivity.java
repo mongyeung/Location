@@ -57,8 +57,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
 
-        editTextLatitude = findViewById(R.id.editText);
-        editTextLongitude = findViewById(R.id.editText2);
+        //editTextLatitude = findViewById(R.id.editText);
+        //editTextLongitude = findViewById(R.id.editText2);
         updateButton = findViewById(R.id.updateButton);
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
