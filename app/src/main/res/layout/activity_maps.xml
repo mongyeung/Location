@@ -13,36 +13,34 @@
         android:layout_height="550dp"
         tools:context=".MapsActivity"
         tools:layout="@android:layout/simple_spinner_dropdown_item" />
-
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="550dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/latitude"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_marginLeft="30dp" />
 
     <EditText
         android:id="@+id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="220dp"
         android:layout_marginTop="550dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/longitude"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_marginLeft="220dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/updateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
         android:layout_marginTop="600dp"
-        android:onClick="updateButtonOnclick"
-        android:text="@string/update" />
+        android:text="@string/update"
+        android:layout_marginLeft="150dp" />
 
 </FrameLayout>

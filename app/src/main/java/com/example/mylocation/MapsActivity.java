@@ -11,6 +11,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -39,6 +40,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private EditText editTextLatitude;
     private EditText editTextLongitude;
+    private Button updateButton;
+
 
 
     @Override
@@ -54,8 +57,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         editTextLatitude = findViewById(R.id.editText);
         editTextLongitude = findViewById(R.id.editText2);
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("Location");
+        updateButton = findViewById(R.id.updateButton);
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateButtonOnclick();
+            }
+        });
+        /*databaseReference = FirebaseDatabase.getInstance().getReference("Location");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -90,7 +99,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
     }
 
 
@@ -108,9 +117,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
 //        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
 
         locationListener = new LocationListener() {
             @Override
@@ -118,6 +125,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 try {
                     editTextLatitude.setText(Double.toString(location.getLatitude()));
                     editTextLongitude.setText(Double.toString(location.getLongitude()));
+                    LatLng cloocation = new LatLng(location.getLatitude(), location.getLongitude());
+                    mMap.addMarker(new MarkerOptions().position(cloocation).title("Your location"));
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(cloocation));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -162,10 +172,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    public void updateButtonOnclick(View view){
+    public void updateButtonOnclick(){
 
-        databaseReference.child("latitude").push().setValue(editTextLatitude.getText().toString());
-        databaseReference.child("longitude").push().setValue(editTextLongitude.getText().toString());
+        //databaseReference.child("latitude").push().setValue(editTextLatitude.getText().toString());
+        //databaseReference.child("longitude").push().setValue(editTextLongitude.getText().toString());
 
     }
 }
