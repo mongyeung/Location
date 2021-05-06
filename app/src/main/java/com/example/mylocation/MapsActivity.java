@@ -87,7 +87,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     LatLng latLng = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
                     System.out.println("Martin latitude:" + latitude);
                     mMap.clear();
-                    mMap.addMarker(new MarkerOptions().position(latLng).title(latitude + " , " + longitude).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
+                    mMap.addMarker(new MarkerOptions().position(latLng).title("YOUR LOCATION").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
 
 
