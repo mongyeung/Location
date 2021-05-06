@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "760664369685",
+    "project_id": "vernal-etching-312906",
+    "storage_bucket": "vernal-etching-312906.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760664369685:android:fdfbf040bcc9c722227c1c",
+        "android_client_info": {
+          "package_name": "com.example.mylocation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760664369685-9ktsvr7nukf2mqibns107jeqlpof85fu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mylocation",
+            "certificate_hash": "0f88dabfad35bcf341b1677d2460633f26d3158c"
+          }
+        },
+        {
+          "client_id": "760664369685-p2cgpg7ocgvqtlqdajkfp9ld4nf51186.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeOi85xfA3Tp45kGYQCTU6UBzXmUqgq4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760664369685-p2cgpg7ocgvqtlqdajkfp9ld4nf51186.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
